@@ -9,16 +9,32 @@
         graph.children[2].AddChild("G").AddChild("H");
         graph.children[0].children[1].AddChild("I").AddChild("J");
         graph.children[2].children[0].AddChild("K");
-        string[] expected = {
-      "A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"
-    };
+        string[] expected =
+        {
+          "A", "B", "E", "F", "I", "J",
+          "C", "D", "G", "K", "H"
+        };
         List<string> inputArray = new List<string>();
-        graph.DepthFirstSearch(inputArray);
+        Boolean res = compare(graph.DepthFirstSearch(inputArray), expected);
+        Console.WriteLine(res);
     }
-    // Do not edit the class below except
-    // for the DepthFirstSearch method.
-    // Feel free to add new properties
-    // and methods to the class.
+
+    public static bool compare(List<string> arr1, string[] arr2)
+    {
+        if (arr1.Count != arr2.Length)
+        {
+            return false;
+        }
+        for (int i = 0; i < arr1.Count; i++)
+        {
+            if (!arr1[i].Equals(arr2[i]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public class Node
     {
         public string name;
