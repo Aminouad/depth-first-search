@@ -1,5 +1,6 @@
 ﻿public class Program
 {
+    //O(V+E) time; O(V) space
     public static void Main(string[] args)
     {
         // Display the number of command line arguments.
